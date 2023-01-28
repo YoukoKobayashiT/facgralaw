@@ -1,0 +1,375 @@
+@charset 'UTF-8';
+
+/* //header sp&tab-layout <900適用  */
+@include media(ltb) {
+  .header {
+    background-color: $main;
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  /*  LOGO_ltb&tb  */
+  .header__title {
+    width: 260px;
+    padding: 2px 12px 2px 0px;
+    z-index: 999;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  /*  header内要素_sp  */
+  .header__inner {
+    padding: 0 20px; //左右の余白確保
+    display: flex; //ロゴとハンバーガーメニューを横に並べる
+    align-items: center;
+    justify-content: space-between;
+    height: inherit; //親要素の高さを継承
+    position: relative;
+  }
+
+  /* navi_ltb&tb */
+  .header__nav {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 80px;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+    background-color: $nav;
+    //グラデをかける
+    background-image: linear-gradient(-75deg, $accent, $nav);
+    transition: ease 0.4s;
+  }
+
+  /*  tab-layout  */
+  .nav-items {
+    position: absolute;
+    top: 18%;
+    left: 28%;
+    transform: translateX(-50%);
+    transform: translateY(-18%);
+  }
+  .nav-items__item {
+    padding-top: 24px;
+  }
+  .nav-items__item-a {
+    font-size: 24px;
+    font-weight: 700;
+    border-bottom: 1px solid $main;
+    color: $white;
+    text-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    display: block;
+    text-align: left;
+    margin-bottom: 44px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-items__item ul li {
+    display: none;
+  }
+
+  /* hamburger_ltb */
+  .header__hamburger {
+    position: absolute;
+    top: 0;
+    width: 48px;
+    height: 100%;
+    margin-left: calc(0.87 * 100vw);
+    margin-right: 20px;
+  }
+  .hamburger {
+    background-color: transparent;
+    border-color: transparent;
+    z-index: 999;
+  }
+
+  /* hamburger's closed-style */
+  .hamburger span {
+    width: 100%;
+    height: 2px;
+    background-color: $white;
+    position: relative;
+    transition: ease 0.4s; // onclick's delay
+    display: block;
+  }
+  .hamburger span:nth-child(1) {
+    top: 0;
+  }
+  .hamburger span:nth-child(2) {
+    margin: 8px 0;
+  }
+  .hamburger span:nth-child(3) {
+    top: 0;
+  }
+
+  /* hamburger's onclick-style=active(rotate)  */
+  .header__nav.-active {
+    transform: translateX(0); //元の位置に戻るように設定
+  }
+  .hamburger.-active span:nth-child(1) {
+    top: 6px;
+    transform: rotate(45deg);
+  }
+  .hamburger.-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.-active span:nth-child(3) {
+    top: -14px;
+    transform: rotate(-45deg);
+  }
+
+  /*  hamburger-menu 以外を非表示 */
+  .main.-hidden {
+    overflow: hidden;
+    visibility: hidden;
+  }
+  .main {
+    visibility: visible;
+  }
+  .footer.-hidden {
+    overflow: hidden;
+    visibility: hidden;
+  }
+  .footer {
+    visibility: visible;
+  }
+}
+
+/*  layout_tb <=768 適用 */
+@include media(tb) {
+  .header {
+    height: 80px;
+  }
+  .header__inner {
+    height: inherit; //親要素の高さを継承
+  }
+  /* hamburger_tb */
+  .header__hamburger {
+    position: absolute;
+    top: 0;
+    width: 48px;
+    height: 100%;
+    margin-left: calc(0.83 * 100vw);
+    margin-right: 20px;
+  }
+  .nav-items__item-a {
+    font-size: 22px;
+  }
+}
+/*  layout_sp */
+@include media(sp) {
+  .header {
+    height: 80px;
+  }
+  .header__inner {
+    height: inherit; //親要素の高さを継承
+  }
+  /*  LOGO_sp  */
+  .header__title {
+    width: 220px;
+    padding: 12px 0px 10px 0px;
+    z-index: 999;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  /* navi_sp */
+  .header__nav {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 80px;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+    background-color: $nav;
+    //グラデーションをかける
+    background-image: linear-gradient(-90deg, $accent, $nav);
+    transition: ease 0.4s;
+  }
+  .nav-items {
+    position: absolute;
+    top: 16%;
+    left: 24%;
+    transform: translateX(-50%);
+    transform: translateY(-16%);
+  }
+  .nav-items__item {
+    padding-top: 10px;
+  }
+  .nav-items__item-a {
+    font-size: 18px;
+    font-weight: 700;
+    border-bottom: 1px solid $main;
+    color: $white;
+    text-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    display: block;
+    text-align: left;
+    margin-bottom: 32px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-items__item ul li {
+    display: none;
+  }
+  /* hamburger_sp */
+  .header__hamburger {
+    position: absolute;
+    top: 0;
+    width: 48px;
+    height: 100%;
+    margin-left: calc(0.75 * 100vw);
+    margin-right: 20px;
+  }
+}
+
+@include media(pc) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 146px;
+    border-bottom: 1px solid $base;
+    z-index: 99;
+  }
+  /* header LOGO */
+  .header__title {
+    width: 320px;
+    padding: {
+      top: 24px;
+      right: clamp(12px, 18/1300 * 100vw, 18px);
+      bottom: 10px;
+      left: clamp(20px, 22/1300 * 100vw, 22px);
+    }
+    z-index: 999;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  /*  grobal-navi-parents__pc-layout  */
+  .header__nav {
+    position: static;
+    transform: initial;
+    background-color: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: end;
+    width: 86%;
+
+    ul,
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  /*ナビメニューを横並び__pc-layout*/
+  .nav__items {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: initial;
+    justify-content: space-between;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .nav-items {
+    padding-top: inherit;
+    padding-bottom: inherit;
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+
+    > li {
+      width: calc(100% / 5);
+      border-left: $white;
+
+      &:first-child {
+        border-left: 0;
+      }
+    }
+
+    li {
+      position: relative;
+      background-color: $main;
+
+      a {
+        color: $white;
+        font-size: clamp(13px, 15/1300 * 100vw, 15px);
+        // font-size: 15px;
+        font-weight: 700;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        padding: {
+          top: 12px;
+          right: clamp(16px, 18/1300 * 100vw, 20px);
+          bottom: 12px;
+          left: clamp(32px, 34/1300 * 100vw, 34px);
+        }
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+
+        &:hover {
+          background-color: $base;
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  /*  grobal-navi-children__pc-layout  */
+  .nav__items li {
+    ul {
+      width: 100%;
+      min-width: max-content;
+      position: absolute;
+    }
+
+    li {
+      height: 0;
+      overflow: hidden;
+
+      a {
+        font-size: clamp(13px, 15/1300 * 100vw, 15px);
+        // font-size: 15px;
+        border: 1px solid $white;
+        width: 100%;
+      }
+    }
+
+    &:hover > ul > li {
+      height: 100%;
+      overflow: visible;
+    }
+  }
+
+  .nav-items__item a {
+    margin-bottom: 0;
+  }
+
+  /*非表示__pc-layout*/
+  .hamburger {
+    display: none;
+  }
+}

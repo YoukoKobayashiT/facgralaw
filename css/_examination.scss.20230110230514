@@ -1,0 +1,410 @@
+@charset 'UTF-8';
+
+// @import "_colors.scss";
+// @import "_lib.scss";
+// @import "_mediaquery.scss";
+// @import "_fontSize.scss";
+
+/*  //examination */
+.cover-picture {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/*  pageTop-img_examination */
+.cover-picture__inner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  &.examination {
+    background-image: url("../img/examination_pc.jpg");
+    @include media(tb) {
+      background-image: url("../img/examination_tb.jpg");
+    }
+    @include media(sp) {
+      background-image: url("../img/examination_sp.jpg");
+    }
+  }
+  /*  pageTop-imgのグラデ背景色 */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent) left
+      center/100% no-repeat;
+  }
+}
+
+/*animation:petal__桜のスタイル*/
+.petal {
+  position: relative;
+  width: 100%;
+  // height: 100%;
+  height: 93%;
+  perspective: 1000;
+}
+
+.petal span {
+  position: absolute;
+  perspective: 50%;
+  left: 0;
+  // top: -100%; /*アニメーション以外の桜を非表示*/
+  top: 0%;
+  z-index: 2;
+}
+
+/*animation:petal__設定*/
+.petal span:nth-child(2n + 1) {
+  animation: petal1 7s 0s linear infinite, petal01 7s 0s linear infinite;
+}
+@media (-webkit-animation) {
+  .petal span:nth-child(2n + 1) {
+    animation: petal1 7s 0s linear infinite, petal01 7s 0s linear infinite;
+  }
+}
+
+.petal span:nth-child(2n + 2) {
+  animation: petal2 5s 0s linear infinite, petal02 5s 0s linear infinite;
+}
+@media (-webkit-animation) {
+  .petal span:nth-child(2n + 2) {
+    animation: petal2 5s 0s linear infinite, petal02 5s 0s linear infinite;
+  }
+}
+
+/*  animation:petal__桜のfadeout   */
+@keyframes petal01 {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  6% {
+    opacity: 0.3;
+    visibility: hidden;
+  }
+  7% {
+    opacity: 0.6;
+    visibility: visible;
+  }
+  89% {
+    opacity: 1;
+    visibility: visible;
+  }
+  98% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes petal01 {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  51% {
+    opacity: 0.3;
+    visibility: hidden;
+  }
+  52% {
+    opacity: 0.6;
+    visibility: visible;
+  }
+  89% {
+    opacity: 1;
+    visibility: visible;
+  }
+  98% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes petal02 {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  6% {
+    opacity: 0.3;
+    visibility: hidden;
+  }
+  7% {
+    opacity: 0.6;
+    visibility: visible;
+  }
+  89% {
+    opacity: 1;
+    visibility: visible;
+  }
+  98% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes petal02 {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  51% {
+    opacity: 0.3;
+    visibility: hidden;
+  }
+  52% {
+    opacity: 0.6;
+    visibility: visible;
+  }
+  89% {
+    opacity: 1;
+    visibility: visible;
+  }
+  98% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/*animation:petal__桜を回転させる*/
+@keyframes petal1 {
+  0% {
+    top: 0%;
+    transform: translateX(0) rotateX(180deg) rotateY(360deg);
+  }
+
+  100% {
+    top: 100%;
+    transform: translateX(20px) rotateX(0) rotateY(0);
+  }
+}
+@keyframes petal2 {
+  0% {
+    top: 0%;
+    transform: translateX(0) rotateX(180deg) rotateY(360deg);
+  }
+
+  100% {
+    top: 100%;
+    transform: translateX(-20vw) rotateX(0) rotateY(0);
+  }
+}
+@-webkit-keyframes petal1 {
+  0% {
+    top: 0%;
+    transform: translateX(0) rotateX(180deg) rotateY(360deg);
+  }
+
+  100% {
+    top: 100%;
+    transform: translateX(60px) rotateX(0) rotateY(0);
+  }
+}
+@-webkit-keyframes petal2 {
+  0% {
+    top: 0%;
+    transform: translateX(0) rotateX(180deg) rotateY(360deg);
+  }
+
+  100% {
+    top: 100%;
+    transform: translateX(-20vw) rotateX(0) rotateY(0);
+  }
+}
+
+/*animation:petal__桜の配置*/
+.petal span:nth-child(1) {
+  left: 0%;
+}
+.petal span:nth-child(2) {
+  left: 10%;
+}
+.petal span:nth-child(3) {
+  left: 20%;
+}
+.petal span:nth-child(4) {
+  left: 30%;
+}
+.petal span:nth-child(5) {
+  left: 40%;
+}
+.petal span:nth-child(6) {
+  left: 50%;
+}
+.petal span:nth-child(7) {
+  left: 60%;
+}
+.petal span:nth-child(8) {
+  left: 70%;
+}
+.petal span:nth-child(9) {
+  left: 80%;
+}
+.petal span:nth-child(10) {
+  left: 90%;
+}
+.petal span:nth-child(11) {
+  left: 100%;
+}
+
+/*animation:petal__桜の大きさ*/
+.petal span:nth-child(3n + 1) {
+  width: 18px;
+  height: auto;
+  @include media(sp) {
+    width: 12px;
+    height: auto;
+  }
+}
+.petal span:nth-child(3n + 2) {
+  width: 12px;
+  height: auto;
+  @include media(sp) {
+    width: 8px;
+    height: auto;
+  }
+}
+.petal span:nth-child(3n + 3) {
+  width: 24px;
+  height: auto;
+  @include media(sp) {
+    width: 18px;
+    height: auto;
+  }
+}
+
+/*animation:petal__表示秒数*/
+.petal span:nth-child(2n + 1) {
+  animation-duration: 4s;
+}
+.petal span:nth-child(2n + 2) {
+  animation-duration: 8s;
+}
+.petal span:nth-child(2n + 3) {
+  animation-duration: 6s;
+}
+.petal span:nth-child(2n + 4) {
+  animation-duration: 10s;
+}
+
+/*animation:petal__桜が降り始めるまでの時間*/
+.petal span:nth-child(2n + 1) {
+  animation-delay: 4s;
+}
+.petal span:nth-child(2n + 2) {
+  animation-delay: 4s;
+}
+.petal span:nth-child(2n + 3) {
+  animation-delay: 0s;
+}
+.petal span:nth-child(2n + 4) {
+  animation-delay: 2s;
+}
+.petal span:nth-child(2n + 5) {
+  animation-delay: 0s;
+}
+.petal span:nth-child(2n + 6) {
+  animation-delay: 0s;
+}
+.petal span:nth-child(2n + 7) {
+  animation-delay: 2s;
+}
+.petal span:nth-child(2n + 8) {
+  animation-delay: 4s;
+}
+.petal span:nth-child(2n + 9) {
+  animation-delay: 0s;
+}
+.petal span:nth-child(2n + 10) {
+  animation-delay: 1s;
+}
+.petal span:nth-child(2n + 11) {
+  animation-delay: 0s;
+}
+
+/*animation:circle-light__扉上部からの光 */
+.circle-light {
+  position: relative;
+  perspective: 1000;
+}
+
+/*animation:circle-light__光の配置*/
+.circle-light span {
+  position: absolute;
+  perspective: 50%;
+  width: 400px;
+  height: 620px;
+  margin-top: -100px;
+  margin-left: 38vw;
+  background-image: radial-gradient(200px 200px, $lighting, transparent);
+  @include media(lg) {
+    width: 300px;
+    height: 620px;
+    margin-top: -170px;
+    margin-left: 600px;
+  }
+  @include media(ltb) {
+    width: 300px;
+    height: 760px;
+    margin-top: -280px;
+    margin-left: 590px;
+  }
+  @include media(tb) {
+    width: 300px;
+    height: 760px;
+    margin-top: -280px;
+    margin-left: 350px;
+  }
+  @include media(sp) {
+    width: 280px;
+    height: 760px;
+    margin-top: -280px;
+    margin-left: 120px;
+  }
+}
+
+/*animation:circle-light__設定*/
+.circle-light span {
+  animation: circleLighting 1s linear;
+  animation-fill-mode: both;
+}
+@media (-webkit-animation) {
+  .circle-light span {
+    animation: circleLighting 1s linear;
+    animation-fill-mode: both;
+  }
+}
+
+/*animation:circle-light__光のfadein*/
+@keyframes circleLighting {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+@-webkit-keyframes circleLighting {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}

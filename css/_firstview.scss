@@ -1,0 +1,118 @@
+@charset 'UTF-8';
+
+// @import "_colors.scss";
+// @import "_lib.scss";
+// @import "_mediaquery.scss";
+
+
+/*  //firstView */
+.cover-picture {
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cover-picture-first__inner {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  &.firstView {
+    background-image: url("../img/firstView_pc.jpg");
+    @include media(tb) {
+      background-image: url("../img/firstView_tbb.jpg");
+    }
+  }
+}
+
+/*  firstView's capcure */
+.cover-picture-first__on {
+  position: absolute;
+  color: $white;
+  display: block;
+  top: 68vh;
+  left: 12vw;
+  // font: {
+  //   size: clamp(40px, 58/1300 * 100vw, 60px);
+  //   weight: 800;
+  // }
+  font-size: 60px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  @include media(lg) {
+    font-size: 60px;//58
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+  @include media(ltb) {
+    font-size: 54px;//52
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+  @include media(tb) {
+    font-size: clamp(40px, 52/768 * 100vw, 52px);
+    // font-size:  40px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+  }
+  @include media(sp) {
+    top: 64vh;
+    left: 32px;//50
+    font-size: clamp(24px, 38/500 * 100vw, 38px);
+    // font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+  }
+}
+
+/*  triangle to bottom   */
+.triangle_mainColor {
+  position: relative;
+  margin: -10px auto;
+  width: 105px;
+  height: 35px;
+  @include media(ltb) {
+    width: 90px;
+    height: 30px;
+  }
+  @include media(tb) {
+    width: 75px;
+    height: 25px;
+  }
+  @include media(sp) {
+    width: 60px;
+    height: 20px;
+  }
+  background: linear-gradient(to bottom left, $main 50%, transparent 50%) top
+      left / 50% 100% no-repeat,
+    linear-gradient(to bottom right, $main 50%, transparent 50%) top right / 50%
+      100% no-repeat;
+}
+
+.triangle_baseColor {
+  position: relative;
+  margin: -10px auto;
+  width: 105px;
+  height: 35px;
+  @include media(ltb) {
+    width: 90px;
+    height: 30px;
+  }
+  @include media(tb) {
+    width: 75px;
+    height: 25px;
+  }
+  @include media(sp) {
+    width: 60px;
+    height: 20px;
+  }
+  background: linear-gradient(to bottom left, $base 50%, transparent 50%) top
+      left / 50% 100% no-repeat,
+    linear-gradient(to bottom right, $base 50%, transparent 50%) top right / 50%
+      100% no-repeat;
+}
